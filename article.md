@@ -18,6 +18,8 @@ Nesse mesmo contexto, faz-se necessário tratar os trechos de código das tarefa
 
 A programação multitarefa trouxe a necessidade do compartilhamento de dados entre processos, o que gerou alguns obstáculos, como por exemplo a carência da sincronização da execução das tarefas, o isolamento de áreas de dados protegidas e uma divisão eficiente dos recursos disponíveis, assim como a limitação desses recursos, o que deu origem a um mecanismo chamada semáforo. Surge juntamente com a programação multitarefa o problema relacionado a acessos múltiplos e concorrentes a um mesmo recurso. Um processo lendo um conjunto de dados da memória ao mesmo tempo que um outro processo atualiza esses dados, gera um erro, o que torna a leitura inválida e produz um resultado diferente do esperado, o que fez necessário o desenvolvimento de uma ferramenta de sincronização de tarefas, assim como os ***semáforos***, chamada ***mutex***.
 
+---
+
 ### **Semáforos**
 
 Assim como citado anteriormente, uma solução para o gerenciamento de recursos compartilhados são os semáforos. Um semáforo é um mecanismo de sincronização de tarefas, utilizado para bloquear tarefas quando um recurso não está disponível, realizando isso através de um contador (int) que pode representar a quantidade de recursos presentes no sistema em questão, ou se uma condição específica está satisfeita. Em sua aplicação, o semáforo pode ser inicializado com qualquer valor, mas posterior a sua criação as únicas modificações que devem ser feitas são de incremento e decremento, além disso, uma fila também torna-se necessária, para permitir o armazenamento dos descritores daquelas tarefas que foram bloqueadas por conta da indisponibilidade do recurso, a fim de permitir suas respectivas retomadas no momento da liberação do recurso.
@@ -133,8 +135,6 @@ got_lock:
 ; um único ciclo de execução. Portanto, ou toda a verificação e atualização
 ; de valores são realizadas, ou nada é executado.
 ```
-
----
 
 ![](media/image_atomic_operation.png)
 
